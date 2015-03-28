@@ -1,6 +1,16 @@
 alarm_settings:
   hour: "18:30"
-  gpio_pin: 24
+
+  turn_on_led: True
+  led_settings:
+    gpio_led: 10
+
+  turn_some_water: True
+  servo_settings:
+    gpio_servo: 8
+    init_value: 50
+    end_value: 249
+
   play_song: True
   song_settings:
-    song_file: "./1-06 Fortunate Son.mp3"
+    song_folder: "./wakeup_songs/"

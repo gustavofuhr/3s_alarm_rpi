@@ -1,7 +1,6 @@
-from rpi_led_alarm_clock import RpiLedAlarmClock
-
+from three_s_alarm_rpi import ThreeSAlarmRpi
 
 
 if __name__ == "__main__":
-    alarm_clock = RpiLedAlarmClock()
+    alarm_clock = ThreeSAlarmRpi()
     alarm_clock.activate()
