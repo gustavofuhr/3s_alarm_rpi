@@ -1,0 +1,6 @@
+alarm_settings:
+  hour: "18:30"
+  gpio_pin: 24
+  play_song: True
+  song_settings:
+    song_file: "./1-06 Fortunate Son.mp3"
