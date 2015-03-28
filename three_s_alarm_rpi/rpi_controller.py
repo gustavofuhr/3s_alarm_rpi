@@ -31,6 +31,7 @@ class RPiController:
         GPIO.output(channel, GPIO.HIGH)
 
     def turn_some_water(self):
+        pass
         # channel = self.servo_gpio
 
         # GPIO.setmode(GPIO.BCM)

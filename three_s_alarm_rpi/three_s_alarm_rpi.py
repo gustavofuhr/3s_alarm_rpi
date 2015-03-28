@@ -1,7 +1,7 @@
 import yaml
 import sched
 import time
-import rpi_controller
+import three_s_alarm_rpi.rpi_controller
 from datetime import datetime
 from pprint import pprint
 
