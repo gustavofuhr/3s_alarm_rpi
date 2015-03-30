@@ -1,16 +1,17 @@
 alarm_settings:
-  hour: "18:30"
+  hour: "10:30"
 
   turn_on_led: True
   led_settings:
-    gpio_led: 10
+    gpio_led: 21
 
   turn_some_water: True
-  servo_settings:
-    gpio_servo: 8
-    init_value: 50
-    end_value: 249
+  water_settings:
+    gpio_servo: 12
+    init_value: 249
+    end_value: 50
+    chance_time: 20
 
-  play_song: True
+  play_songs: True
   song_settings:
     song_folder: "./wakeup_songs/"
