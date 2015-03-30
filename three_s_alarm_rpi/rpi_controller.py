@@ -45,11 +45,6 @@ class RPiController:
         with open("/dev/servoblaster", "wb") as f:
             f.write(servoStr)
 
-    def move_servo(self, position):
-        servoStr = "%u=%u\n" % (self.servo_gpio, position)
-        with open("/dev/servoblaster", "wb") as f:
-            f.write(servoStr)
-
     def turn_on_LED(self, how_long=60 * 60 * 4):
         channel = self.led_gpio
 
@@ -60,10 +55,6 @@ class RPiController:
     def turn_some_water(self, init_value, end_value):
         self.move_servo(init_value)
         self.move_servo(end_value)
-        # channel = self.servo_gpio
-
-        # GPIO.setmode(GPIO.BCM)
-        # GPIO.setup
 
     def play_songfile(self, song_file):
         mixer.init()

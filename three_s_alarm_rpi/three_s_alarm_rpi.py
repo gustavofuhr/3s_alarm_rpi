@@ -20,6 +20,7 @@ class ThreeSAlarmRpi:
         self.schedule = sched.scheduler(time.time, time.sleep)
         self.Rpi = rpi_controller.RPiController(self.settings['led_settings']['gpio_led'], self.settings[
                                                 'water_settings']['gpio_servo'], self.settings['water_settings']['init_value'])
+        self.Rpi.
 
     def read_config(self, config_filename):
 
