@@ -11,8 +11,6 @@ class RPiController:
         GPIO.setmode(GPIO.BCM)
         self.clean_up_chanels()
 
-        self.set_servoblaster_channel()
-
         if init_servo_value is not None:
             self.move_servo(init_servo_value)
 
@@ -44,6 +42,11 @@ class RPiController:
 
     def move_servo(self, position):
         servoStr = "%u=%u\n" % (self.blaster_channel, position)
+        with open("/dev/servoblaster", "wb") as f:
+            f.write(servoStr)
+
+    def move_servo(self, position):
+        servoStr = "%u=%u\n" % (self.servo_gpio, position)
         with open("/dev/servoblaster", "wb") as f:
             f.write(servoStr)
 

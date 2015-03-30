@@ -49,6 +49,7 @@ class ThreeSAlarmRpi:
 
     def activate(self):
         print('Waiting for wakeup hour...')
+        self.schedule = sched.scheduler(time.time, time.sleep)
 
         FMT = '%H:%M'
         pprint(self.settings)
