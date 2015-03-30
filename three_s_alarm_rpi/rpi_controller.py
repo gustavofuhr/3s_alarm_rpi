@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 from pygame import mixer
 from time import sleep
+import os
 
 
 class RPiController:
@@ -56,12 +57,21 @@ class RPiController:
         self.move_servo(init_value)
         self.move_servo(end_value)
 
+    def play_setlist(self):
+        while True:
+            random_song = random.choice(self.list_songs)
+            play_songfile()
+
     def play_songfile(self, song_file):
         mixer.init()
         mixer.music.load(self.song_file)
-        mixer.music.play(-1)
+        mixer.music.play(1)
         while mixer.music.get_busy() == True:
             continue
 
     def set_playlist(self, song_folder):
-        pass
+        self.list_songs = [
+            os.path.join(song_folder, fn) for fn in next(os.walk(song_folder))[2]]
+
+        self.list_songs = [
+            s for s in self.list_songs if '.mp3' in s or '.ogg' in s]

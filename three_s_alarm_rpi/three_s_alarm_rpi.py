@@ -20,7 +20,7 @@ class ThreeSAlarmRpi:
         self.schedule = sched.scheduler(time.time, time.sleep)
         self.Rpi = rpi_controller.RPiController(self.settings['led_settings']['gpio_led'], self.settings[
                                                 'water_settings']['gpio_servo'], self.settings['water_settings']['init_value'])
-        self.Rpi.
+        self.Rpi.set_playlist(self.settings['song_folder'])
 
     def read_config(self, config_filename):
 
@@ -37,11 +37,10 @@ class ThreeSAlarmRpi:
         print('Wake up pretty girl!')
         if self.settings['turn_on_led']:
             self.Rpi.turn_on_LED()
-        # if self.settings['play_songs']:
-            # self.Rpi.play_songfile()
+        if self.settings['play_songs']:
+            self.Rpi.play_setlist()
 
-        # put the sched to execture the water (ir required),
-        # to give a change for you to wakeup
+        # put the sched to turn water (if required) after some chance time ;-)
         if self.settings['turn_some_water']:
             ivalue = self.settings['water_settings']['init_value']
             evalue = self.settings['water_settings']['end_value']
