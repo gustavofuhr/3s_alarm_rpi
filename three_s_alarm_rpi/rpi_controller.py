@@ -2,6 +2,7 @@ import RPi.GPIO as GPIO
 from pygame import mixer
 from time import sleep
 import os
+import random
 
 
 class RPiController:
@@ -11,6 +12,7 @@ class RPiController:
         self.servo_gpio = servo_gpio
         GPIO.setmode(GPIO.BCM)
         self.clean_up_chanels()
+	self.set_servoblaster_channel()
 
         if init_servo_value is not None:
             self.move_servo(init_servo_value)
@@ -60,11 +62,11 @@ class RPiController:
     def play_setlist(self):
         while True:
             random_song = random.choice(self.list_songs)
-            play_songfile()
+            self.play_songfile(random_song)
 
     def play_songfile(self, song_file):
         mixer.init()
-        mixer.music.load(self.song_file)
+        mixer.music.load(song_file)
         mixer.music.play(1)
         while mixer.music.get_busy() == True:
             continue

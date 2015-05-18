@@ -1,5 +1,5 @@
 alarm_settings:
-  hour: "10:30"
+  hour: "9:00"
 
   turn_on_led: True
   led_settings:
